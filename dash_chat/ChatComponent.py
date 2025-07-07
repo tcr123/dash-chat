@@ -28,6 +28,24 @@ class ChatComponent(Component):
     - container_style (dict; optional):
         Inline css styles to customize the chat container.
 
+    - file_attachment_button_config (dict; default {    show: True,    label: "Attach File",    icon: "paperclip",    icon_position: "only",    style: {},    className: "",}):
+        Configuration for the file attachment button in the input field.
+        Allows customization of appearance and behavior.
+
+        `file_attachment_button_config` is a dict with keys:
+
+        - show (boolean; optional)
+
+        - label (string; optional)
+
+        - icon (a value equal to: "paper-plane-horizontal", "paper-plane", "folder", "file", "paperclip"; optional)
+
+        - icon_position (a value equal to: "left", "right", "only"; optional)
+
+        - style (dict; optional)
+
+        - className (string; optional)
+
     - fill_height (boolean; default True):
         Whether to vertically fill the screen with the chat container. If
         False, centers and constrains container to a maximum height.
@@ -65,6 +83,22 @@ class ChatComponent(Component):
 
     - persistence_type (a value equal to: "local", "session"; default "local"):
         Where persisted messages will be stored.
+
+    - send_button_config (dict; default {    label: "Send",    icon: "paper-plane",    icon_position: "only",    style: {},    className: "",}):
+        Configuration for the send button in the input field. Allows
+        customization of appearance and behavior.
+
+        `send_button_config` is a dict with keys:
+
+        - label (string; optional)
+
+        - icon (a value equal to: "paper-plane-horizontal", "paper-plane", "folder", "file", "paperclip"; optional)
+
+        - icon_position (a value equal to: "left", "right", "only"; optional)
+
+        - style (dict; optional)
+
+        - className (string; optional)
 
     - supported_input_file_types (string | list of strings; default "*/*"):
         String or array of file types to accept in the attachment file
@@ -107,6 +141,8 @@ class ChatComponent(Component):
         persistence=Component.UNDEFINED,
         persistence_type=Component.UNDEFINED,
         supported_input_file_types=Component.UNDEFINED,
+        file_attachment_button_config=Component.UNDEFINED,
+        send_button_config=Component.UNDEFINED,
         **kwargs
     ):
         self._prop_names = [
@@ -114,6 +150,7 @@ class ChatComponent(Component):
             "assistant_bubble_style",
             "class_name",
             "container_style",
+            "file_attachment_button_config",
             "fill_height",
             "fill_width",
             "input_container_style",
@@ -123,6 +160,7 @@ class ChatComponent(Component):
             "new_message",
             "persistence",
             "persistence_type",
+            "send_button_config",
             "supported_input_file_types",
             "theme",
             "typing_indicator",
@@ -134,6 +172,7 @@ class ChatComponent(Component):
             "assistant_bubble_style",
             "class_name",
             "container_style",
+            "file_attachment_button_config",
             "fill_height",
             "fill_width",
             "input_container_style",
@@ -143,6 +182,7 @@ class ChatComponent(Component):
             "new_message",
             "persistence",
             "persistence_type",
+            "send_button_config",
             "supported_input_file_types",
             "theme",
             "typing_indicator",
