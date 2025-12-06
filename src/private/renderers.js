@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
-import { FileText } from "lucide-react";
+import AssetRenderer from "./AssetRenderer";
+import { FileText, X } from "lucide-react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Plot from "react-plotly.js";
@@ -46,6 +47,10 @@ const textRenderer = (item) => (
     <Markdown remarkPlugins={[remarkGfm]}>
         {item}
     </Markdown>
+);
+
+const assetRenderer = (item) => (
+    <AssetRenderer item={item} />
 );
 
 const fileRenderer = (item) => {
@@ -181,6 +186,12 @@ const renderMessageContent = (content) => {
                                 {fileRenderer(item)}
                             </div>
                         );
+                    case "asset":
+                        return (
+                            <div key={i}>
+                                {assetRenderer(item)}
+                            </div>
+                        )
                     case "graph":
                         return (
                             <div key={i}>
